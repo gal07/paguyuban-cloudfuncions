@@ -28,6 +28,7 @@ export const usermanagement = functions.https.onRequest((request, response) => {
    */
   if (request.body.type == 1) {
     firebase.auth().createUser({
+      phoneNumber:"+62"+request.body.data.phone.substring(1),
       email: request.body.data.email.toLowerCase(),
       emailVerified: true,
       password: request.body.data.email,
